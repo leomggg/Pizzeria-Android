@@ -19,7 +19,9 @@
     <string name="btnResetPassword">Restablecer contraseña</string>
 
     //Pantalla principal
-    <string name="SettingButton">⚙️</string>
+    <string name="btnHome"> </string>
+    <string name="btnCarrito"> </string>
+    <string name="btnPerfil"> </string>
 
 
 
