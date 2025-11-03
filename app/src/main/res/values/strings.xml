@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Pizzeria</string>
+
+    //Pantalla Bienvenida
+    <string name="msgBienvenida">Bienvenido/a</string>
+    <string name="txtUser">Introduzca su nombre de usuario: </string>
+    <string name="txtPassword">Introduzca su contraseña: </string>
+    <string name="btnLogin">Iniciar sesión</string>
+
+    //Pantalla Registro
+    <string name="msgRegistro">Registro de usuario</string>
+    <string name="txtNewUser">Introduce tu nombre de usuario: </string>
+    <string name="txtNewPassword">Introduce tu contraseña: </string>
+    <string name="btnRegistro">Registrarse</string>
+
+    //Pantalla Reset Password
+    <string name="msgResetPassword">Restablecer la contraseña</string>
+    <string name="txtCorreo">Introduce el correo enlazado con tu usuario: </string>
+    <string name="btnResetPassword">Restablecer contraseña</string>
+
+    //Pantalla principal
+    <string name="SettingButton">⚙️</string>
+
+
+
+
+
+
+
+
+
+
+
+</resources>
