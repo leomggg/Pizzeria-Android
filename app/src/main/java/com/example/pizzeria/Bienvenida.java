@@ -32,12 +32,7 @@ public class Bienvenida extends AppCompatActivity {
         final TextView txtRegistro = findViewById(R.id.txtviewRegistrarse);
         final TextView txtResetPassword = findViewById(R.id.txtviewResetPassword);
 
-
         final DAOUsuarios dao = DAOUsuarios.getInstance();
-
-        //Prueba de funcinamiento del login
-        final String adminUser = "admin";
-        final String adminPass = "admin";
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override

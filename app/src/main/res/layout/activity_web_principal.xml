@@ -15,30 +15,33 @@
         android:layout_height="71dp"
         android:background="@color/colorTextFinal"
         android:backgroundTint="@color/colorTextFinal"
-        android:orientation="horizontal"
         android:gravity="center"
+        android:orientation="horizontal"
         android:padding="8dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="659dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <ImageButton
             android:id="@+id/btnHome"
             android:layout_width="60dp"
             android:layout_height="53dp"
+            android:layout_marginEnd="70dp"
             android:background="@null"
             android:scaleType="fitCenter"
             android:src="@drawable/casa"
-            android:layout_marginEnd="70dp"
-            android:text="@string/btnPerfil" />
+            android:text="@string/btnHome" />
 
         <ImageButton
             android:id="@+id/btnCarrito"
             android:layout_width="50dp"
             android:layout_height="49dp"
+            android:layout_marginEnd="70dp"
             android:background="@null"
             android:scaleType="fitCenter"
             android:src="@drawable/carrito"
-            android:layout_marginEnd="70dp"
             android:text="@string/btnCarrito" />
 
         <ImageButton
@@ -77,7 +80,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.415"
-        app:srcCompat="@drawable/simboloPizza" />
+        app:srcCompat="@drawable/simbolopizza" />
 
     <ImageButton
         android:id="@+id/btnConfig"

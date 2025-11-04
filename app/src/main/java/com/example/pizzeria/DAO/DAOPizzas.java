@@ -29,7 +29,7 @@ public class DAOPizzas {
         return dao;
     }
 
-    public Pizza buscarPizza(String nombre) {
+    public Pizza buscarPizzaNombre(String nombre) {
         for (Pizza p : listaPizzas) {
             if (p.getNombre().equals(p.getNombre())) return p;
         }
