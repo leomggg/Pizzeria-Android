@@ -3,7 +3,9 @@ package com.example.pizzeria;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +17,9 @@ import com.example.pizzeria.DAO.DAOPizzas;
 import com.example.pizzeria.POJO.Pizza;
 
 public class Pizzas extends AppCompatActivity {
+
+    ListView listaPizzas;
+    DAOPizzas dao = new DAOPizzas();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,11 +55,8 @@ public class Pizzas extends AppCompatActivity {
             }
         });
 
-        //For each pizza se crea un cuadro con la pizza y los botones de sumar o añadir al carrito
-        for (Pizza p : dao.obtenerPizzas()) {
+        listaPizzas = findViewById(R.id.)
 
-        }
-        //Añadir un carrito persistente
-
+        ArrayAdapter<Pizzas> adaptadorPizzas =
     }
 }

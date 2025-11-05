@@ -14,7 +14,7 @@ public class gestionCarrito {
         this.carrito = carrito;
     }
 
-    private List<Pizza> actualizarCarrito() {
+    private List<Pizza> getCarrito() {
         return carrito;
     }
 
@@ -23,7 +23,7 @@ public class gestionCarrito {
        for (int i = 1; i < cantidad; i++) {
            carrito.add(objetoPizza);
        }
-       actualizarCarrito();
+       getCarrito();
    }
 
    public void removePizzaCarrito(String pizza, int cantidad) {
@@ -31,6 +31,6 @@ public class gestionCarrito {
        for (int i = 1; i < cantidad; i++) {
            carrito.remove(objetoPizza);
        }
-       actualizarCarrito();
+       getCarrito();
    }
 }
