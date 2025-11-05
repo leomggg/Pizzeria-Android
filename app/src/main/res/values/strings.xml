@@ -23,5 +23,9 @@
     <string name="btnCarrito"> </string>
     <string name="btnPerfil"> </string>
 
+    //Pantalla Pizzas
+    <string name="btnRestar">-</string>
+    <string name="btnSumar">+</string>
+
 
 </resources>
