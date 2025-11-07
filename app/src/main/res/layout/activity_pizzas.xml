@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorFondo"
-    tools:context=".Pizzas">
+    tools:context=".Pizzas"
+    android:fitsSystemWindows="true">
 
     <!-- Menú de abajo -->
     <LinearLayout
@@ -53,6 +54,7 @@
     </LinearLayout>
 
     <ListView
+        android:id="@+id/listaPizzas"
         android:layout_width="380dp"
         android:layout_height="628dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"

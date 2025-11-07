@@ -18,6 +18,7 @@ public class WebPrincipal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_web_principal);
 
         final ImageButton btnWeb = findViewById(R.id.btnWeb);
         final ImageButton btnConfig = findViewById(R.id.btnConfig);
@@ -62,7 +63,7 @@ public class WebPrincipal extends AppCompatActivity {
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(WebPrincipal.this, Home.class);
+                Intent intent = new Intent(WebPrincipal.this, WebPrincipal.class);
                 startActivity(intent);
             }
         });

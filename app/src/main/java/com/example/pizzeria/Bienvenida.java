@@ -40,16 +40,23 @@ public class Bienvenida extends AppCompatActivity {
                 String nombre = textusuario.getText().toString().trim();
                 String password = textpassword.getText().toString().trim();
 
-                for (Usuario u : dao.obtenerUsuarios()) {
-                    if (nombre.equals(u.getNombre()) && password.equals(u.getPassword())) {
+                if (nombre.isEmpty() || password.isEmpty()) {
+                    Toast.makeText(Bienvenida.this, "Rellene todos los datos", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                Usuario usuario = dao.buscarUsuario(nombre);
+                if (usuario != null) {
+                    if (usuario.getPassword().equals(password)) {
+                        Toast.makeText(Bienvenida.this, "Bienvenido" + nombre, Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(Bienvenida.this, WebPrincipal.class);
                         startActivity(intent);
-                        Toast.makeText(Bienvenida.this, "Bienvenido " + nombre, Toast.LENGTH_SHORT).show();
-                    } else if (nombre.equals(u.getNombre()) && !password.equals(u.getPassword()) || !dao.encontrarUsuario(nombre)) Toast.makeText(Bienvenida.this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
-                }
+                    } else Toast.makeText(Bienvenida.this, "Contraseña incorrecta", Toast.LENGTH_SHORT).show();
+                } else Toast.makeText(Bienvenida.this, "Usuario no existente, por favor regístrese", Toast.LENGTH_SHORT).show();
             }
         });
 
+        // Registro
         txtRegistro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,6 +65,7 @@ public class Bienvenida extends AppCompatActivity {
             }
         });
 
+        // Reinicio de contraseña
         txtResetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

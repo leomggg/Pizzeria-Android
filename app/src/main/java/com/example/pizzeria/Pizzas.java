@@ -19,14 +19,16 @@ import com.example.pizzeria.POJO.Pizza;
 public class Pizzas extends AppCompatActivity {
 
     ListView listaPizzas;
-    DAOPizzas dao = new DAOPizzas();
+    DAOPizzas dao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
 
-        final DAOPizzas dao = new DAOPizzas();
+        setContentView(R.layout.activity_pizzas);
+
+        dao = new DAOPizzas();
         final ImageButton btnHome = findViewById(R.id.btnHome);
         final ImageButton btnCarrito = findViewById(R.id.btnCarrito);
         final ImageButton btnPerfil = findViewById(R.id.btnPerfil);
@@ -42,7 +44,7 @@ public class Pizzas extends AppCompatActivity {
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Pizzas.this, Home.class);
+                Intent intent = new Intent(Pizzas.this, WebPrincipal.class);
                 startActivity(intent);
             }
         });
@@ -55,8 +57,8 @@ public class Pizzas extends AppCompatActivity {
             }
         });
 
-        listaPizzas = findViewById(R.id.)
-
-        ArrayAdapter<Pizzas> adaptadorPizzas =
+        listaPizzas = findViewById(R.id.listaPizzas);
+        ArrayAdapter<Pizza> adaptadorPizzas = new ArrayAdapter<Pizza>(this, android.R.layout.simple_list_item_1, dao.obtenerPizzas());
+        listaPizzas.setAdapter(adaptadorPizzas);
     }
 }
