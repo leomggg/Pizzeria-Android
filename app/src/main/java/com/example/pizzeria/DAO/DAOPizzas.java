@@ -39,4 +39,8 @@ public class DAOPizzas {
     public List<Pizza> obtenerPizzas() {
         return listaPizzas;
     }
+
+    public String getListaPizzas() {
+        return listaPizzas.toString();
+    }
 }

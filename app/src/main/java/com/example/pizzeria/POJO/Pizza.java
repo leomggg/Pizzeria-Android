@@ -48,11 +48,6 @@ public class Pizza {
 
     @Override
     public String toString() {
-        return "Pizza{" +
-                "nombre='" + nombre + '\'' +
-                ", ingr1='" + ingr1 + '\'' +
-                ", ingr2='" + ingr2 + '\'' +
-                ", ingr3='" + ingr3 + '\'' +
-                '}';
+        return  "Pizza " + nombre + '\n' + ingr1 + ", " + ingr2 + ", " + ingr3;
     }
 }

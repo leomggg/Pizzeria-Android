@@ -5,7 +5,52 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorFondo"
     tools:context=".Carrito"
     android:fitsSystemWindows="true">
+
+    <!-- Menú de abajo -->
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="71dp"
+        android:background="@color/colorTextFinal"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/btnHome"
+            android:layout_width="0dp"
+            android:layout_height="53dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:contentDescription="@string/btnHome"
+            android:scaleType="fitCenter"
+            android:src="@drawable/casa" />
+
+        <ImageButton
+            android:id="@+id/btnCarrito"
+            android:layout_width="0dp"
+            android:layout_height="49dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:contentDescription="@string/btnCarrito"
+            android:scaleType="fitCenter"
+            android:src="@drawable/carrito" />
+
+        <ImageButton
+            android:id="@+id/btnPerfil"
+            android:layout_width="0dp"
+            android:layout_height="54dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:contentDescription="@string/btnPerfil"
+            android:scaleType="fitCenter"
+            android:src="@drawable/perfil" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
