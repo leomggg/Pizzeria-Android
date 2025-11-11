@@ -6,12 +6,14 @@ public class Pizza {
     private String ingr1;
     private String ingr2;
     private String ingr3;
+    private double precio;
 
-    public Pizza(String nombre, String ingr1, String ingr2, String ingr3) {
+    public Pizza(String nombre, String ingr1, String ingr2, String ingr3, double precio) {
         this.nombre = nombre;
         this.ingr1 = ingr1;
         this.ingr2 = ingr2;
         this.ingr3 = ingr3;
+        this.precio = precio;
     }
 
     public String getNombre() {
@@ -46,8 +48,16 @@ public class Pizza {
         this.ingr3 = ingr3;
     }
 
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
     @Override
     public String toString() {
-        return  "Pizza " + nombre + '\n' + ingr1 + ", " + ingr2 + ", " + ingr3;
+        return  "Pizza " + nombre + '\n' + ingr1 + ", " + ingr2 + ", " + ingr3 + "\n" + precio + "€";
     }
 }

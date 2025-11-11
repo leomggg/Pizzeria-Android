@@ -16,12 +16,9 @@ import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.pizzeria.DAO.DAOPizzas;
-import com.example.pizzeria.DAO.gestionCarrito;
+import com.example.pizzeria.DAO.GestionCarrito;
 import com.example.pizzeria.POJO.Pizza;
 
 public class Pizzas extends AppCompatActivity {
@@ -29,7 +26,7 @@ public class Pizzas extends AppCompatActivity {
     ListView listaPizzas;
     DAOPizzas dao;
 
-    gestionCarrito carrito;
+    GestionCarrito carrito;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +37,7 @@ public class Pizzas extends AppCompatActivity {
 
         dao = new DAOPizzas();
         listaPizzas = findViewById(R.id.listaPizzas);
-        carrito = new gestionCarrito(gestionCarrito.getCarrito());
+        carrito = GestionCarrito.getInstance();
         final ImageButton btnHome = findViewById(R.id.btnHome);
         final ImageButton btnCarrito = findViewById(R.id.btnCarrito);
         final ImageButton btnPerfil = findViewById(R.id.btnPerfil);
