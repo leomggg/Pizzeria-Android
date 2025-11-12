@@ -29,6 +29,14 @@ public class ItemCarrito {
     }
 
     public boolean estaPizza(Pizza pizza2) {
-        return this.pizza.getNombre() == pizza2.getNombre();
+        return this.pizza.getNombre().equals(pizza2.getNombre());
+    }
+
+    @Override
+    public String toString() {
+        double precioUnitario = this.pizza.getPrecio();
+        double subtotal = precioUnitario * this.cant;
+
+        return this.cant + "x " + this.pizza.getNombre() + " - Subtotal: " + String.format("%.2f", subtotal) + "€";
     }
 }

@@ -11,7 +11,7 @@ public class GestionCarrito {
     private DAOPizzas dao = new DAOPizzas();
     private List<ItemCarrito> itemsCarrito = new ArrayList<>();
 
-    public GestionCarrito() {
+    private GestionCarrito() {
 
     }
 
@@ -28,7 +28,7 @@ public class GestionCarrito {
         String pizzaNombre = pizza.getNombre();
 
         for (ItemCarrito item : itemsCarrito) {
-            if (item.getPizza().getNombre() == pizzaNombre) return item;
+            if (item.getPizza().getNombre().equals(pizzaNombre)) return item;
         }
 
         return null;
@@ -45,7 +45,7 @@ public class GestionCarrito {
        else itemsCarrito.add(new ItemCarrito(objetoPizza, cantidad));
    }
 
-   public void removePizzaCarrito(String pizza, int cantidad) {
+   public void reducePizzaCarrito(String pizza, int cantidad) {
        Pizza objetoPizza = dao.buscarPizzaNombre(pizza);
 
        if (objetoPizza == null || cantidad <= 0) return;
@@ -58,7 +58,7 @@ public class GestionCarrito {
            if (nuevaCant > 0) itemExist.setCant(nuevaCant);
            else {
                for (int i = 0; i < itemsCarrito.size(); i++) {
-                   if (itemsCarrito.get(i).getPizza().getNombre() == objetoPizza.getNombre()) {
+                   if (itemsCarrito.get(i).getPizza().getNombre().equals(objetoPizza.getNombre())) {
                        itemsCarrito.remove(i);
                        return;
                    }
@@ -66,4 +66,9 @@ public class GestionCarrito {
            }
        }
    }
+
+   public void limpiarCarrito() {
+        itemsCarrito.clear();
+   }
+
 }
