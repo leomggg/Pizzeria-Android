@@ -73,7 +73,7 @@ public class Carrito extends AppCompatActivity {
             }
         });
 
-        // LLevar a pasarela de pago
+        // Si el botón fuera funcional y la app real esto nos llevaría a la pasarela de pago
         btnPagar.setOnClickListener(v -> {
 
         });
@@ -107,7 +107,15 @@ public class Carrito extends AppCompatActivity {
                 this,
                 android.R.layout.simple_list_item_1,
                 itemsCarrito
-        );
+        ) {
+            @Override
+            public View getView(int position, View convertView, android.view.ViewGroup parent) {
+                View view = super.getView(position, convertView, parent);
+                TextView text = view.findViewById(android.R.id.text1);
+                text.setTextColor(getResources().getColor(android.R.color.white));
+                return view;
+            }
+        };
         listaCarrito.setAdapter(carritoAdapter);
 
         if (txtPrecioTotal != null) txtPrecioTotal.setText((String.format("%.2f", totalGlobal) + "€"));

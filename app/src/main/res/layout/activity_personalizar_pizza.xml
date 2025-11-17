@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Config"
+    tools:context=".PersonalizarPizza"
     android:fitsSystemWindows="true">
 
     <!-- Menú de abajo -->
@@ -19,7 +19,7 @@
         android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent" >
 
         <ImageButton
             android:id="@+id/btnHome"
@@ -51,7 +51,5 @@
             android:scaleType="fitCenter"
             android:src="@drawable/perfil" />
     </LinearLayout>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

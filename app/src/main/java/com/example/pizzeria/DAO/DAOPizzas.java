@@ -31,7 +31,7 @@ public class DAOPizzas {
 
     public Pizza buscarPizzaNombre(String nombre) {
         for (Pizza p : listaPizzas) {
-            if (p.getNombre().equals(p.getNombre())) return p;
+            if (p.getNombre().equals(nombre)) return p;
         }
         return null;
     }

@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.example.pizzeria.DAO.DAOPizzas;
 import com.example.pizzeria.DAO.GestionCarrito;
@@ -25,8 +26,9 @@ public class Pizzas extends AppCompatActivity {
 
     ListView listaPizzas;
     DAOPizzas dao;
-
     GestionCarrito carrito;
+
+    private static final String PREFS_NAME = "PIZZA_FAVORITAS";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,8 @@ public class Pizzas extends AppCompatActivity {
         final ImageButton btnHome = findViewById(R.id.btnHome);
         final ImageButton btnCarrito = findViewById(R.id.btnCarrito);
         final ImageButton btnPerfil = findViewById(R.id.btnPerfil);
+        final Button btnPersonalizar = findViewById(R.id.btnPersonalizar);
+        final Button btnFavoritos = findViewById(R.id.btnFavoritos);
 
         btnCarrito.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +66,22 @@ public class Pizzas extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Pizzas.this, Perfil.class);
+                startActivity(intent);
+            }
+        });
+
+        btnPersonalizar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Pizzas.this, PersonalizarPizza.class);
+                startActivity(intent);
+            }
+        });
+
+        btnFavoritos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Pizzas.this, Favoritas.class);
                 startActivity(intent);
             }
         });
@@ -88,12 +108,23 @@ public class Pizzas extends AppCompatActivity {
 
     private void seleccionarCantidad(Pizza pizza) {
         final int[] cantidad = {1};
+        final boolean[] favorita = {esFavorita(pizza.getNombre())};
 
         TextView txtCantidad = new TextView(this);
         txtCantidad.setText(String.valueOf(cantidad[0]));
         txtCantidad.setTextSize(24f);
-        txtCantidad.setPadding(50, 50, 50, 50);
+        txtCantidad.setPadding(30, 30, 30, 30);
         txtCantidad.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+
+        ImageButton btnFavorito = new ImageButton(this);
+        btnFavorito.setBackground(null);
+        marcarFavorita(btnFavorito, favorita[0]);
+
+        btnFavorito.setOnClickListener(v -> {
+            favorita[0] = !favorita[0];
+            guardarFavorita(pizza.getNombre(), favorita[0]);
+            marcarFavorita(btnFavorito, favorita[0]);
+        });
 
         LinearLayout lay = new LinearLayout(this);
         lay.setOrientation(LinearLayout.HORIZONTAL);
@@ -104,6 +135,7 @@ public class Pizzas extends AppCompatActivity {
         Button btnMas = new Button(this);
         btnMas.setText("+");
 
+        lay.addView(btnFavorito);
         lay.addView(btnMenos);
         lay.addView(txtCantidad);
         lay.addView(btnMas);
@@ -128,5 +160,27 @@ public class Pizzas extends AppCompatActivity {
             }
         });
     }
+
+    private void marcarFavorita(ImageButton btnFavorito, boolean b) {
+        int iconResource = b ? android.R.drawable.btn_star_big_on : android.R.drawable.btn_star_big_off;
+        int colorTint = b ?
+                ContextCompat.getColor(this, android.R.color.holo_orange_light) :
+                ContextCompat.getColor(this, android.R.color.darker_gray);
+
+        btnFavorito.setImageResource(iconResource);
+        btnFavorito.setColorFilter(colorTint);
+    };
+
+    private boolean esFavorita(String nombre) {
+        return getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
+                .getBoolean(nombre, false);
+    };
+
+    private void guardarFavorita(String nombrePizza, boolean favorita) {
+        getSharedPreferences(PREFS_NAME, MODE_PRIVATE)
+                .edit()
+                .putBoolean(nombrePizza, favorita)
+                .apply();
+    };
 
 }

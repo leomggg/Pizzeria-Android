@@ -48,7 +48,7 @@ public class Bienvenida extends AppCompatActivity {
                 Usuario usuario = dao.buscarUsuario(nombre);
                 if (usuario != null) {
                     if (usuario.getPassword().equals(password)) {
-                        Toast.makeText(Bienvenida.this, "Bienvenido" + nombre, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Bienvenida.this, "Bienvenido " + nombre, Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(Bienvenida.this, WebPrincipal.class);
                         startActivity(intent);
                     } else Toast.makeText(Bienvenida.this, "Contraseña incorrecta", Toast.LENGTH_SHORT).show();
