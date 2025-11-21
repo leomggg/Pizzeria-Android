@@ -1,4 +1,4 @@
-package com.example.pizzeria;
+package com.example.pizzeria.PantallaPrincipal.WebMenuConfig.GeneralPersonalizadaUltima;
 
 import android.app.AlertDialog;
 import android.content.Intent;
@@ -18,9 +18,14 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import com.example.pizzeria.Carrito;
 import com.example.pizzeria.DAO.DAOPizzas;
 import com.example.pizzeria.DAO.GestionCarrito;
+import com.example.pizzeria.Favoritas;
 import com.example.pizzeria.POJO.Pizza;
+import com.example.pizzeria.PantallaPrincipal.WebPrincipal;
+import com.example.pizzeria.Perfil;
+import com.example.pizzeria.R;
 
 public class Pizzas extends AppCompatActivity {
 

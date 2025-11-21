@@ -12,19 +12,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Pizzeria">
         <activity
+            android:name=".PantallaPrincipal.WebMenuConfig.GeneralPersonalizadaUltima.UltimaPizza"
+            android:exported="false" />
+        <activity
+            android:name=".PantallaPrincipal.WebMenuConfig.PantallaMenuPizzas"
+            android:exported="false" />
+        <activity
             android:name=".Favoritas"
             android:exported="false" />
         <activity
-            android:name=".PersonalizarPizza"
+            android:name=".PantallaPrincipal.WebMenuConfig.GeneralPersonalizadaUltima.PersonalizarPizza"
             android:exported="false" />
         <activity
             android:name=".Home"
             android:exported="false" />
         <activity
-            android:name=".Pizzas"
+            android:name=".PantallaPrincipal.WebMenuConfig.GeneralPersonalizadaUltima.Pizzas"
             android:exported="false" />
         <activity
-            android:name=".Config"
+            android:name=".PantallaPrincipal.WebMenuConfig.Config"
             android:exported="false" />
         <activity
             android:name=".Perfil"
@@ -39,7 +45,7 @@
             android:name=".Registro"
             android:exported="false" />
         <activity
-            android:name=".WebPrincipal"
+            android:name=".PantallaPrincipal.WebPrincipal"
             android:exported="false" />
         <activity
             android:name=".Bienvenida"

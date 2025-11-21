@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PantallaPrincipal.WebMenuConfig.GeneralPersonalizadaUltima.PersonalizarPizza"
+    tools:context=".PantallaPrincipal.WebMenuConfig.PantallaMenuPizzas"
     android:fitsSystemWindows="true"
     android:background="@color/colorFondo">
 
@@ -52,5 +52,47 @@
             android:scaleType="fitCenter"
             android:src="@drawable/perfil" />
     </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/btnUltimaPizza"
+        android:layout_width="376dp"
+        android:layout_height="130dp"
+        android:background="@color/colorTextFinal"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.084"
+        app:srcCompat="@drawable/iconoultimapizza" />
+
+    <ImageButton
+        android:id="@+id/btnPizzasGenerales"
+        android:layout_width="376dp"
+        android:layout_height="130dp"
+        android:background="@color/colorTextFinal"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.415"
+        app:srcCompat="@drawable/simbolopizza" />
+
+    <ImageButton
+        android:id="@+id/btnPizzaPersonalizada"
+        android:layout_width="376dp"
+        android:layout_height="130dp"
+        android:background="@color/colorTextFinal"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.739"
+        app:srcCompat="@drawable/pizzapersonalizar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

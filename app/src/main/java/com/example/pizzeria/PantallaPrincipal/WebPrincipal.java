@@ -1,4 +1,4 @@
-package com.example.pizzeria;
+package com.example.pizzeria.PantallaPrincipal;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -8,9 +8,12 @@ import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import com.example.pizzeria.Carrito;
+import com.example.pizzeria.PantallaPrincipal.WebMenuConfig.Config;
+import com.example.pizzeria.Perfil;
+import com.example.pizzeria.PantallaPrincipal.WebMenuConfig.GeneralPersonalizadaUltima.Pizzas;
+import com.example.pizzeria.R;
 
 public class WebPrincipal extends AppCompatActivity {
 

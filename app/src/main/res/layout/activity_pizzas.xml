@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorFondo"
-    tools:context=".Pizzas"
+    tools:context=".PantallaPrincipal.WebMenuConfig.GeneralPersonalizadaUltima.Pizzas"
     android:fitsSystemWindows="true">
 
     <!-- Menú de abajo -->

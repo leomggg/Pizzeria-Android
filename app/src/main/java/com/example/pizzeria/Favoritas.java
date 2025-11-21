@@ -1,23 +1,27 @@
 package com.example.pizzeria;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.pizzeria.DAO.DAOPizzas;
+import com.example.pizzeria.DAO.GestionCarrito;
 import com.example.pizzeria.POJO.Pizza;
+import com.example.pizzeria.PantallaPrincipal.WebPrincipal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +30,7 @@ public class Favoritas extends AppCompatActivity {
 
     private ListView listaFavoritas;
     private DAOPizzas dao;
+    private GestionCarrito carrito;
     private static final String PREFS_NAME = "PIZZA_FAVORITAS";
 
     @Override
@@ -35,6 +40,7 @@ public class Favoritas extends AppCompatActivity {
         setContentView(R.layout.activity_favoritas);
 
         dao = new DAOPizzas();
+        carrito = GestionCarrito.getInstance();
         listaFavoritas = findViewById(R.id.listaFavoritas);
 
         final ImageButton btnHome = findViewById(R.id.btnHome);
@@ -96,7 +102,57 @@ public class Favoritas extends AppCompatActivity {
                 return view;
             }
         };
-
         listaFavoritas.setAdapter(adaptadorFavoritas);
+
+        listaFavoritas.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Pizza pizzaSelec = (Pizza) parent.getItemAtPosition(position);
+                seleccionarCant(pizzaSelec);
+            }
+        });
+    }
+
+    private void seleccionarCant(Pizza pizza) {
+        final int[] cant = {1};
+
+        TextView txtCantidad = new TextView(this);
+        txtCantidad.setText(String.valueOf(cant[0]));
+        txtCantidad.setTextSize(24f);
+        txtCantidad.setPadding(30, 30, 30, 30);
+        txtCantidad.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+
+        LinearLayout lay = new LinearLayout(this);
+        lay.setOrientation(LinearLayout.HORIZONTAL);
+        lay.setGravity(Gravity.CENTER);
+
+        Button btnMenos = new Button(this);
+        btnMenos.setText("-");
+        Button btnMas = new Button(this);
+        btnMas.setText("+");
+
+        lay.addView(btnMenos);
+        lay.addView(txtCantidad);
+        lay.addView(btnMas);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(pizza.getNombre()).setView(lay).setPositiveButton("Confirmar", (dialog, which) -> {
+            carrito.anadirPizzaCarrito(pizza.getNombre(), cant[0]);
+        }).setNegativeButton("Cancelar", (dialog, which) -> dialog.dismiss());
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+        btnMas.setOnClickListener(v -> {
+            cant[0]++;
+            txtCantidad.setText(String.valueOf(cant[0]));
+        });
+
+        btnMenos.setOnClickListener(v -> {
+            if (cant[0] > 1) {
+                cant[0]--;
+                txtCantidad.setText((String.valueOf(cant[0])));
+            }
+        });
     }
 }

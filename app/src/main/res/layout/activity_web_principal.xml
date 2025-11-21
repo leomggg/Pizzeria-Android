@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorFondo"
     android:backgroundTint="@color/colorFondo"
-    tools:context=".WebPrincipal"
+    tools:context=".PantallaPrincipal.WebPrincipal"
     android:fitsSystemWindows="true">
 
     <LinearLayout
