@@ -5,7 +5,6 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorFondo"
     tools:context=".Carrito"
     android:fitsSystemWindows="true">
 
@@ -14,10 +13,10 @@
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="71dp"
-        android:background="@color/colorTextFinal"
         android:gravity="center"
         android:orientation="horizontal"
         android:padding="8dp"
+        android:background="@color/colorTextFinal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -62,8 +61,7 @@
         app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.24"
-        android:textColor="@android:color/white"/>
+        app:layout_constraintVertical_bias="0.24"/>
 
     <LinearLayout
         android:id="@+id/layoutResumenAcciones"
@@ -86,16 +84,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:paddingEnd="8dp"
-            android:textColor="@android:color/white">
+            android:paddingEnd="8dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Precio Total:"
                 android:textSize="14sp"
-                android:textStyle="bold"
-                android:textColor="@android:color/white"/>
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/txtPrecioTotal"
@@ -103,8 +99,7 @@
                 android:layout_height="wrap_content"
                 android:text="0,00€"
                 android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@android:color/white"/>
+                android:textStyle="bold"/>
         </LinearLayout>
 
         <Button

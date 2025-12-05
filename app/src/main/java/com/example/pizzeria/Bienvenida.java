@@ -9,8 +9,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.example.pizzeria.DAO.DAOUsuarios;
+import com.example.pizzeria.POJO.GestorTemas;
 import com.example.pizzeria.POJO.Usuario;
 import com.example.pizzeria.PantallaPrincipal.WebPrincipal;
 
@@ -19,6 +21,7 @@ public class Bienvenida extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setAppTheme();
         setContentView(R.layout.activity_bienvenida);
 
         final EditText textusuario = findViewById(R.id.usuario);
@@ -69,5 +72,17 @@ public class Bienvenida extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void setAppTheme() {
+        int savedMode = GestorTemas.getThemeMode(this);
+
+        // 0: Modo Claro (por defecto)
+        // 1: Modo Oscuro
+        int themeMode = (savedMode == 1) ?
+                AppCompatDelegate.MODE_NIGHT_YES :
+                AppCompatDelegate.MODE_NIGHT_NO;
+
+        AppCompatDelegate.setDefaultNightMode(themeMode);
     }
 }

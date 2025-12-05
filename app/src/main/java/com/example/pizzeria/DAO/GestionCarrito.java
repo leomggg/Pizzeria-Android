@@ -45,6 +45,19 @@ public class GestionCarrito {
        else itemsCarrito.add(new ItemCarrito(objetoPizza, cantidad));
    }
 
+    public void anadirPizzaDirecta(Pizza pizzaObj, int cantidad) {
+        if (pizzaObj == null || cantidad <= 0) return;
+
+        // Buscamos si ya hay una igual en el carrito (mismo nombre)
+        ItemCarrito itemExist = buscarItemExistente(pizzaObj);
+
+        if (itemExist != null) {
+            itemExist.setCant((itemExist.getCant() + cantidad));
+        } else {
+            itemsCarrito.add(new ItemCarrito(pizzaObj, cantidad));
+        }
+    }
+
    public void reducePizzaCarrito(String pizza, int cantidad) {
        Pizza objetoPizza = dao.buscarPizzaNombre(pizza);
 

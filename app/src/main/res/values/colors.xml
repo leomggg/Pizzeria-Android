@@ -7,4 +7,8 @@
     <color name="colorText1">#3C3B47</color>
     <color name="colorTextFinal">#916AD7</color>
     <color name="colorMenu">#4A2886</color>
+
+    // modo claro
+    <color name="fondo_dinamico">#FFFFFF</color>
+    <color name="texto_dinamico">#000000</color>
 </resources>

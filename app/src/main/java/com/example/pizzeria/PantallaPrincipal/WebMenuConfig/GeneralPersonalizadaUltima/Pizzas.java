@@ -16,15 +16,17 @@ import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.content.ContextCompat;
 
 import com.example.pizzeria.Carrito;
 import com.example.pizzeria.DAO.DAOPizzas;
 import com.example.pizzeria.DAO.GestionCarrito;
 import com.example.pizzeria.Favoritas;
+import com.example.pizzeria.POJO.GestorTemas;
 import com.example.pizzeria.POJO.Pizza;
+import com.example.pizzeria.PantallaPrincipal.WebMenuConfig.Config;
 import com.example.pizzeria.PantallaPrincipal.WebPrincipal;
-import com.example.pizzeria.Perfil;
 import com.example.pizzeria.R;
 
 public class Pizzas extends AppCompatActivity {
@@ -38,6 +40,7 @@ public class Pizzas extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setAppTheme();
         EdgeToEdge.enable(this);
 
         setContentView(R.layout.activity_pizzas);
@@ -48,7 +51,6 @@ public class Pizzas extends AppCompatActivity {
         final ImageButton btnHome = findViewById(R.id.btnHome);
         final ImageButton btnCarrito = findViewById(R.id.btnCarrito);
         final ImageButton btnPerfil = findViewById(R.id.btnPerfil);
-        final Button btnPersonalizar = findViewById(R.id.btnPersonalizar);
         final Button btnFavoritos = findViewById(R.id.btnFavoritos);
 
         btnCarrito.setOnClickListener(new View.OnClickListener() {
@@ -70,15 +72,7 @@ public class Pizzas extends AppCompatActivity {
         btnPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Pizzas.this, Perfil.class);
-                startActivity(intent);
-            }
-        });
-
-        btnPersonalizar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Pizzas.this, PersonalizarPizza.class);
+                Intent intent = new Intent(Pizzas.this, Config.class);
                 startActivity(intent);
             }
         });
@@ -96,7 +90,7 @@ public class Pizzas extends AppCompatActivity {
             public View getView(int position, View convertView, ViewGroup parent) {
                 View view = super.getView(position, convertView, parent);
                 TextView text = view.findViewById(android.R.id.text1);
-                text.setTextColor(getResources().getColor(android.R.color.white));
+                text.setTextColor(getResources().getColor(R.color.texto_dinamico));
                 return view;
             }
         };
@@ -187,5 +181,17 @@ public class Pizzas extends AppCompatActivity {
                 .putBoolean(nombrePizza, favorita)
                 .apply();
     };
+
+    private void setAppTheme() {
+        int savedMode = GestorTemas.getThemeMode(this);
+
+        // 0: Modo Claro (por defecto)
+        // 1: Modo Oscuro
+        int themeMode = (savedMode == 1) ?
+                AppCompatDelegate.MODE_NIGHT_YES :
+                AppCompatDelegate.MODE_NIGHT_NO;
+
+        AppCompatDelegate.setDefaultNightMode(themeMode);
+    }
 
 }

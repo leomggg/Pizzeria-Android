@@ -28,4 +28,8 @@
     <string name="btnSumar">+</string>
 
 
+    <string name="cambiartemaclaro">Cambiar tema a claro</string>
+    <string name="cambiartemaoscuro">Cambiar tema a oscuro</string>
+
+
 </resources>

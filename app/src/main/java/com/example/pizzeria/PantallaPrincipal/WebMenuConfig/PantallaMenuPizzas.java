@@ -7,7 +7,9 @@ import android.widget.ImageButton;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
+import com.example.pizzeria.POJO.GestorTemas;
 import com.example.pizzeria.PantallaPrincipal.WebMenuConfig.GeneralPersonalizadaUltima.PersonalizarPizza;
 import com.example.pizzeria.PantallaPrincipal.WebMenuConfig.GeneralPersonalizadaUltima.Pizzas;
 import com.example.pizzeria.PantallaPrincipal.WebMenuConfig.GeneralPersonalizadaUltima.UltimaPizza;
@@ -18,6 +20,7 @@ public class PantallaMenuPizzas extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setAppTheme();
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_pantalla_menu_pizzas);
 
@@ -48,5 +51,17 @@ public class PantallaMenuPizzas extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    private void setAppTheme() {
+        int savedMode = GestorTemas.getThemeMode(this);
+
+        // 0: Modo Claro (por defecto)
+        // 1: Modo Oscuro
+        int themeMode = (savedMode == 1) ?
+                AppCompatDelegate.MODE_NIGHT_YES :
+                AppCompatDelegate.MODE_NIGHT_NO;
+
+        AppCompatDelegate.setDefaultNightMode(themeMode);
     }
 }

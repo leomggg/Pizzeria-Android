@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PantallaPrincipal.WebMenuConfig.GeneralPersonalizadaUltima.PersonalizarPizza"
-    android:fitsSystemWindows="true"
-    android:background="@color/colorFondo">
+    android:fitsSystemWindows="true">
 
     <!-- Menú de abajo -->
     <LinearLayout
@@ -52,5 +51,70 @@
             android:scaleType="fitCenter"
             android:src="@drawable/perfil" />
     </LinearLayout>
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Crea tu Pizza Única"
+                android:textColor="@color/texto_dinamico"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginBottom="16dp"/>
+
+            <TextView
+                android:id="@+id/tvPrecioFijo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Precio Único: 12.00€"
+                android:textColor="@color/texto_dinamico"
+                android:textSize="22sp"
+                android:gravity="center"
+                android:layout_marginBottom="24dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Elige tus ingredientes (Máx. 3):"
+                android:textColor="@color/texto_dinamico"
+                android:textSize="18sp"
+                android:layout_marginBottom="12dp"/>
+
+            <CheckBox android:id="@+id/cbJamon" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Jamón York" android:textColor="@color/texto_dinamico"/>
+            <CheckBox android:id="@+id/cbQueso" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Extra Queso" android:textColor="@color/texto_dinamico"/>
+            <CheckBox android:id="@+id/cbBacon" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Bacon" android:textColor="@color/texto_dinamico"/>
+            <CheckBox android:id="@+id/cbChampinon" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Champiñones" android:textColor="@color/texto_dinamico"/>
+            <CheckBox android:id="@+id/cbPimiento" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Pimiento" android:textColor="@color/texto_dinamico"/>
+            <CheckBox android:id="@+id/cbAceitunas" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Aceitunas Negras" android:textColor="@color/texto_dinamico"/>
+            <CheckBox android:id="@+id/cbPina" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Piña" android:textColor="@color/texto_dinamico"/>
+            <CheckBox android:id="@+id/cbPollo" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Pollo" android:textColor="@color/texto_dinamico"/>
+
+            <Button
+                android:id="@+id/btnAnadirPersonalizada"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Añadir al Carrito"
+                android:layout_marginTop="32dp"
+                android:backgroundTint="@color/fondo_dinamico"
+                android:textColor="@color/texto_dinamico"
+                android:textSize="18sp"/>
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

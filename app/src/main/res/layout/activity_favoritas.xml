@@ -6,18 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Favoritas"
-    android:fitsSystemWindows="true"
-    android:background="@color/colorFondo">
+    android:fitsSystemWindows="true">
 
     <!-- Menú de abajo -->
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="71dp"
-        android:background="@color/colorTextFinal"
         android:gravity="center"
         android:orientation="horizontal"
         android:padding="8dp"
+        android:background="@color/colorTextFinal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" >

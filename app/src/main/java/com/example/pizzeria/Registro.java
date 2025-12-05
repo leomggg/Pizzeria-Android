@@ -9,11 +9,13 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.pizzeria.DAO.DAOUsuarios;
+import com.example.pizzeria.POJO.GestorTemas;
 import com.example.pizzeria.POJO.Usuario;
 
 public class Registro extends AppCompatActivity {
@@ -21,6 +23,7 @@ public class Registro extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setAppTheme();
         setContentView(R.layout.activity_registro);
 
         final Button btnRegistro = findViewById(R.id.btnRegistro);
@@ -42,5 +45,17 @@ public class Registro extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void setAppTheme() {
+        int savedMode = GestorTemas.getThemeMode(this);
+
+        // 0: Modo Claro (por defecto)
+        // 1: Modo Oscuro
+        int themeMode = (savedMode == 1) ?
+                AppCompatDelegate.MODE_NIGHT_YES :
+                AppCompatDelegate.MODE_NIGHT_NO;
+
+        AppCompatDelegate.setDefaultNightMode(themeMode);
     }
 }

@@ -16,11 +16,14 @@ import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.content.ContextCompat;
 
 import com.example.pizzeria.DAO.DAOPizzas;
 import com.example.pizzeria.DAO.GestionCarrito;
+import com.example.pizzeria.POJO.GestorTemas;
 import com.example.pizzeria.POJO.Pizza;
+import com.example.pizzeria.PantallaPrincipal.WebMenuConfig.Config;
 import com.example.pizzeria.PantallaPrincipal.WebPrincipal;
 
 import java.util.ArrayList;
@@ -36,6 +39,7 @@ public class Favoritas extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setAppTheme();
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_favoritas);
 
@@ -66,7 +70,7 @@ public class Favoritas extends AppCompatActivity {
         btnPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Favoritas.this, Perfil.class);
+                Intent intent = new Intent(Favoritas.this, Config.class);
                 startActivity(intent);
             }
         });
@@ -98,7 +102,7 @@ public class Favoritas extends AppCompatActivity {
             public View getView(int position, View convertView, android.view.ViewGroup parent) {
                 View view = super.getView(position, convertView, parent);
                 TextView texto = view.findViewById(android.R.id.text1);
-                texto.setTextColor(ContextCompat.getColor(getContext(), android.R.color.white));
+                texto.setTextColor(ContextCompat.getColor(getContext(), R.color.texto_dinamico));
                 return view;
             }
         };
@@ -154,5 +158,17 @@ public class Favoritas extends AppCompatActivity {
                 txtCantidad.setText((String.valueOf(cant[0])));
             }
         });
+    }
+
+    private void setAppTheme() {
+        int savedMode = GestorTemas.getThemeMode(this);
+
+        // 0: Modo Claro (por defecto)
+        // 1: Modo Oscuro
+        int themeMode = (savedMode == 1) ?
+                AppCompatDelegate.MODE_NIGHT_YES :
+                AppCompatDelegate.MODE_NIGHT_NO;
+
+        AppCompatDelegate.setDefaultNightMode(themeMode);
     }
 }
